@@ -1,4 +1,9 @@
 ## 西班牙签证位置监听 (base英国)
+
+# 声明：使用反爬虫技术绕过Cloudflare在英国是违法的。本项目仅用于技术交流，所有可能发生的任何法律问题与项目作者及贡献者无关，使用者需完全承担任何可能的责任。下载或克隆代码即代表同意本条款。若不同意，请立即关闭本页面，谢谢。
+
+# DISCLAIMER: Using anti-bot techniques to bypass Cloudflare is illegal in the UK. This project is for technical education only and all possible legal issues that may occur are not the responsibility of the project authors and contributors. The user is solely responsible for any possible liability. By downloading or cloning the code means you agree to these terms. If you do not agree, please close this page immediately, thank you.
+
 ### 一、简介
 回国需要申根签，但是每天蹲网站刷slot太浪费时间了，故写了一个监听脚本。分享给在🇬🇧有需要的同学。
 
@@ -75,4 +80,4 @@
    ```shell
     python monitor.py
     ```
-   程序会自动控制一个Chrome浏览器完成自动登录、选择签证者中心，自动识别可用日期。有slot的话会直接语音提示。
+   程序会自动控制一个Chrome浏览器完成自动登录、选择签证中心，自动识别可用日期。有slot的话会直接语音提示。
