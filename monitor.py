@@ -1,5 +1,5 @@
 import time
-
+import ssl
 import pyttsx3
 import undetected_chromedriver
 
@@ -9,6 +9,7 @@ from visa import Visa
 
 
 def init_driver():
+    ssl._create_default_https_context = ssl._create_unverified_context
     profile = {
         "profile.default_content_setting_values.notifications": 2  # block notifications
     }
@@ -18,15 +19,15 @@ def init_driver():
     chrome_options.add_argument("--incognito")
 
     driver = undetected_chromedriver.Chrome(options=chrome_options)
-    driver.implicitly_wait(1)
+    driver.implicitly_wait(0)
     driver.delete_all_cookies()
     return driver
 
 
 def monitor():
+    driver = init_driver()
+    visa = Visa(driver)
     try:
-        driver = init_driver()
-        visa = Visa(driver)
         visa.go_to_appointment_page()
         time.sleep(config.CLOUDFLARE_TIME_OUT)
         visa.login()
@@ -45,6 +46,7 @@ def monitor():
 
     except Exception as e:
         logger.error(f'Monitor runtime error. {e}')
+        driver.quit()
         monitor()
 
 
